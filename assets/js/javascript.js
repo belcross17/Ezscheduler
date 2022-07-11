@@ -18,8 +18,8 @@ var hourSpan;
 //function to set day and hour 
 var setInt = setInterval(function() {
     var now = moment();
-    $('currentDay').html(now.format('YYYY MMMM DD') + '' + now.format('dddd') .substring(0,3).toUppercase());
-    $('currentDay').html(todaysDate + "" + now.format('hh:mm:ss A')); //check before submitting
+    $('#todaysDay').html(now.format('YYYY MMMM DD') + ' ' + now.format('dddd') .substring(0,3).toUpperCase());
+    $('#todaysDay').html(todaysDate + " " + now.format('hh:mm:ss A')); //check before submitting
 }, 100);
 
 //function to load from localStorage
@@ -52,17 +52,16 @@ function start() {
     fivePm.val(start5);
 }
 
-//funtion to 
 function textArea() {
     $(".form-control").each(function () {
-        var Test = parseInt($(this).attr("id"));
+        var test = parseInt($(this).attr("id"));
         hour = parseInt(hour);
-        console.log(Test);
+        console.log(test);
         console.log(hour);
   //      console.log(this);
-        if (hour > Test) {
+        if (hour > test) {
             $(this).addClass("past");
-        } else if (hour < Test) {
+        } else if (hour < test) {
             $(this).addClass("future");
         } else {
             $(this).addClass("present");
@@ -83,6 +82,7 @@ function textArea() {
         localStorage.setItem(hourSpan, JSON.stringify(userInput));
       })
 
+    //function to clear entire schedule
     $("#clearDay").on("click", function(){
         localStorage.clear();
         start()
