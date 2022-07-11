@@ -83,3 +83,8 @@ textarea {
   font-size: 30px;
   transition: all .3s ease-in-out;
 }
+
+.fas:hover {
+  background-color: #000000;
+  border-radius: 100px;
+}
