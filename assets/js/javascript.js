@@ -52,6 +52,7 @@ function start() {
     fivePm.val(start5);
 }
 
+//funtiong to add class to hours depending on time
 function textArea() {
     $(".form-control").each(function () {
         var test = parseInt($(this).attr("id"));
@@ -69,6 +70,7 @@ function textArea() {
     });
   }
 
+  //startup function
   $(document).ready(function(){
     start()
     textArea()
