@@ -22,7 +22,7 @@ var setInt = setInterval(function() {
     $('currentDay').html(todaysDate + "" + now.format('hh:mm:ss A')); //check before submitting
 }, 100);
 
-//localStorage function
+//function to load from localStorage
 function start() {
     var start9 = JSON.parse(localStorage.getItem("09:00 AM"));
     nineAm.val(start9);
@@ -51,3 +51,40 @@ function start() {
     var start5 = JSON.parse(localStorage.getItem("05:00 PM"));
     fivePm.val(start5);
 }
+
+//funtion to 
+function textArea() {
+    $(".form-control").each(function () {
+        var Test = parseInt($(this).attr("id"));
+        hour = parseInt(hour);
+        console.log(Test);
+        console.log(hour);
+  //      console.log(this);
+        if (hour > Test) {
+            $(this).addClass("past");
+        } else if (hour < Test) {
+            $(this).addClass("future");
+        } else {
+            $(this).addClass("present");
+        }
+    });
+  }
+
+  $(document).ready(function(){
+    start()
+    textArea()
+
+    //function to save to localStorage
+    $(".saveBtn").on("click", function(){
+        userInput = $(this).siblings(".form-control").val().trim();
+        console.log(userInput);
+        hourSpan = $(this).siblings(".input-group-prepend").text().trim();
+        console.log(hourSpan);
+        localStorage.setItem(hourSpan, JSON.stringify(userInput));
+      })
+
+    $("#clearDay").on("click", function(){
+        localStorage.clear();
+        start()
+      }); 
+  });
