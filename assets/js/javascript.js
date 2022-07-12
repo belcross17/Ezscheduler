@@ -8,7 +8,7 @@ var twoPm = $("#2pm");
 var threePm = $("#3pm");
 var fourPm = $("#4pm");
 var fivePm = $("#5pm");
-var todaysDate = moment().format('dddd') + "" + moment().format("Do MMM YYYY");
+var todaysDate = moment().format('dddd') + " " + moment().format("Do MMM YYYY");
 var todaysHour = moment().format('h:mm:ss a');
 
 var hour = moment().hours();
@@ -19,7 +19,7 @@ var hourSpan;
 var setInt = setInterval(function() {
     var now = moment();
     $('#todaysDay').html(now.format('YYYY MMMM DD') + ' ' + now.format('dddd') .substring(0,3).toUpperCase());
-    $('#todaysDay').html(todaysDate + " " + now.format('hh:mm:ss A')); //check before submitting
+    $('#todaysDay').html(todaysDate + " " + now.format('hh:mm:ss A')); 
 }, 100);
 
 //function to load from localStorage
